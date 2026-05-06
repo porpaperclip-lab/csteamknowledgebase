@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Knowledge Base - สารบัญโปรดักส์และข้อมูลของทีม CS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #5f6368;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .header-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 20px auto; /* ลด margin ด้านล่างลงนิดหน่อยเพื่อให้ใกล้กับช่องค้นหา */
+        }
+
+        .header-container h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header-container p {
+            color: var(--text-muted);
+            font-size: 1.1em;
+        }
+
+        /* เพิ่ม Style สำหรับกล่องค้นหา */
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Sarabun', sans-serif;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.2);
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* การปรับแต่งส่วนย่อ-ขยาย (Accordion) */
+        details {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        details:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        summary {
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none; /* ซ่อนลูกศร default */
+            display: flex;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "▶";
+            color: var(--primary-color);
+            font-size: 0.8em;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .details-content {
+            margin-top: 20px;
+            padding-left: 25px;
+            border-left: 3px solid #e8eaed;
+        }
+
+        .category-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #bdc1c6;
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        ul li:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #d93025;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>📚 ศูนย์รวมข้อมูลทีม CS</h1>
+        <p>สารบัญค้นหาโปรดักส์และคู่มือการทำงาน (CS Knowledge Base)</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาหัวข้อ, โปรดักส์ หรือบริการ..." onkeyup="searchFunction()">
+    </div>
+
+    <div class="content-container">
+
+        <details>
+            <summary>1. แอปพลิเคชันของบริษัท (Company application)</summary>
+            <div class="details-content">
+                <div class="category-title">จอยลี่แอปพลิเคชัน (Jolly)</div>
+                <ul>
+           <li><a href="https://docs.google.com/presentation/d/1oZKsgxpA_ggYwgAK_-XhtrLprd0_G3sQpMS8_DX_-0M/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้งานเบื้องต้นของแอปพลิเคชัน</a></li>
+          <li><a href="https://docs.google.com/presentation/d/1xTeSqn462DlEONHnqzoekSMf4YuIlcy-1m_g8Yd-uuE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้สิทธิพิเศษของลูกค้าบนแอปพลิเคชัน</a></li>
+                </ul>
+                <div class="category-title">เครสเซนท์ เฮลท์แอปพลิเคชัน (Crescent Health)</div>
+        <ul>
+            <li><a href="ใส่ลิงค์" target="_blank" style="text-decoration: none; color: inherit;">xxxxxxx</a></li>
+        </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>2. บริการอุปกรณ์อิเล็กทรอนิกส์ (Gadget)</summary>
+            <div class="details-content">
+                <div class="category-title">ผลิตภัณฑ์ (Product)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1OGe_v3ce8vAtVyrePgTVJJsUCdG9Yz0Ny3kx9SKdZqc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ดีแทคโมบายแคร์ (Dtac Mobile Care)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/17u4dDRt4j_X4D2_mqUmevp3gZERVK2go2Emp8W-dG3o/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอ็ม เรสซิ่ง โปรดักส์ (M-leasing Product)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1Q235P1-Tcicxix7JWFcTOu9ojgeomoX3ytYneiGnHwY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอส ลีสซิ่ง โปรดักส์ (S-leasing Product)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1IACv8qTzyYddrKKpf8JPlGv_Gnb6lzLDXpaxN7eWH5U/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์เกจเจ็ทแคร์ (Sunday Gadget Care)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1YXRz5S7mX_KMdVFUyUyQ8B-RJkE3LiJjD31-LdYUkWY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริการดูแลอุปกรณ์บริษัท ทรู (True B2B Mobile Care)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1AoHd0FnbB5Q8j6_3hXb3hW5nEvoZhsuLvl8wlZNBKcU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การแนะนำลูกค้าย้ายมาใช้บริการ (Retention program)</a></li>
+                </ul>
+                <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1C1Li67N1qxsqmKQWL55mXM1OWrWCeO0jikMhKT750wY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การค้นหาข้อมูลและดูเคลม (Gadget Admin info x Claim)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1QLKnv4Fqey6WMPFEIoviCXlSgJ80gNFWQ3hXm1IQFSE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการตรวจสอบเครื่องก่อนสมัครบริการ (Pre-inspection)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/18iK2A4uXuhAYGt2Co5bzSkqDW4_y6DiyQctrv1-E3Ys/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ลูกค้านำเครื่องไปซ่อมที่ศูนย์บริการเอง (Walk-in Service Center)</a></li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>3. ประกันสุขภาพ (Health)</summary>
+            <div class="details-content">
+                <div class="note">
+    *หมายเหตุ: <a href="https://docs.google.com/spreadsheets/d/1DcockXJ-5pYN4wYWHfDyDbyIYSoP-BUlgDLoH7odFlI/edit?gid=0#gid=0" target="_blank" style="color: var(--primary-color); text-decoration: underline;">ตารางบัตรเครดิตที่ร่วมรายการ (ผ่อนชำระ)</a>
+</div>
+                <div class="category-title">พื้นฐานทั่วไป (Basic)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1Vej0FpFkyWigiPYNOK-qgXW3BXojzsDXx9sDKIdkULU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ผลประโยชน์ทั่วไปเบื้องต้น (Coverage Detail 101)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1UF-m27FneHSUkfmUJxgvhPXBtVe9CoZB_ynWJkEkAzs/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การตรวจสอบสิทธิ์และการใช้สิทธิ์ (Customer Verification)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1hz1yAPDk1yfAuJL5fc95uGOJ-I_0y8AST7Acn8td0Sk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การเคลมสินไหมประกันสุขภาพทั่วไป (Claim Reimbursements)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1p4GtWt5ITV6P5amwoLlocN2qpxoE8Yzu9r8JThlYlg4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ค่าเสียหายส่วนร่วมและส่วนแรก (Co-Payment and Deductible)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1Zhff9nlm2Zx41FkV6jI_sD7CMsLHKbXxpeV2VZKBwL0/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ผลประโยชน์การทำกายภาพบำบัด (Benefit Physical therapy)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/13kvNkbx9rI_wSQjuCT7ZUPnR8uiBORB65NfI8AYo0tQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ปรึกษาแพทย์ทางไกล (Telemedicine)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1HSk2E-tkvoChw3XI6JsLFuUIP2srPfZO-F9q6DCTCnU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การใช้บริการร้านขายยาในเครือ (Walk-in Pharmacy Service)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1sw4Lc67cJeUXIK08VIB2AWhriyi97lL9BNEjTiagmzc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">เงิ่อนไขการเคลมโควิด-19 (Claim Covid-19)</a></li>
+                </ul>
+                <div class="category-title">ประกันสุขภาพกลุ่ม (Employee)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1cBuIzfv6FpDdlmwp9eOcncXzXuUHGD0LXLHUnxnww8k/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">แอกซ่าประกันภัย (AXA Employee Benefits Group)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1ILXIm1h3ra7XI8_S-ijs3vBV5GXSZUEmlxHdo_wt30s/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัทรับความเสี่ยงเอง (Self-Insured Employee Benefits Group)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1Z7JSWb_Brtz99rITMIihjF4DsSynkspuMmQAGLd0E_c/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์ประกันภัย (Sunday Employee Benefits Group)</a></li>
+                </ul>
+                <div class="category-title">ประกันรายเดี่ยว (Retail)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1Pde9hAkSiqMsTL-oqWK3MUc50P_15PWOsdRONWBNOPA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทแอกซ่าประกันภัยขายผ่านซันเดย์โบรคเกอร์ (AXA Product Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1i3ZuRSAdjGyOqizdTDgSlmYWtW-4vhrFGJStJw6ENfA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทเมืองไทยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (MTI Product Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1RKb6bObA0amNrlOJemjGoR66jVx9T1d9BL-YbMmyRFQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านทางโทรศัพท์ (Sunday Product Broker Telesales Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1ZYxTVEnMqQ3XyvThE-pE0O9sSeYXIExRraCFayWFEdk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Product Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1lQJUWD7YyChXpSbLPUKXPwoRjRtZ8wYLKjbNmAnO6Fk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัททิพยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (TIP Product Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1nhAniPdj8XzRlMvsShuXRb5xvaFion2JDRQQZphyrR4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันอุบัติเหตุส่วนบุคคลของบริษัทกรุงเทพประกันภัยขายผ่านซันเดย์โบรคเกอร์ (BKI Product Retail)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1d-5BjgztqL1Za48l_3fhWUjOmcyWcYjnLjBM2A8Fh9Q/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">โปรดักสที่ขายโดยบริษัทซันเดย์ประกันภัย (Sunday Insurance Product)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/14e9WJhXYu5UttwDagPx6QQ3RPQLA3Xq9oIimtvQ83Co/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การปรับเบี้ยประกันปีต่ออายุสำหรับลูกค้ารายเดียวซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Renewal Repricing Retail)</a></li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>4. ประกันรถยนต์ (Motor)</summary>
+            <div class="details-content">
+ <ul>
+                    <div class="category-title">พื้นฐานทั่วไป (Basic)</div>
+        <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1yuGlJozMsL8mSORuslyBwpvY8b4Q0V_LQUho0pgt7UA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้พื้นฐานประกันรถยนต์ (Car Insurance)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1JEVloB2YcBPWZ1ZZ3TFBit7jmL6vn-KFSnDX3taSOrA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การนำรถเข้าซ่อม (Car Repairment)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1osXESGpGA2yG8j97owRv0GHTfr_aBT2xWt0wFu6Ltb4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ในการใช้รถและการขับขี่ (Essential Car Knowledge and Driving Skills)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/1t1hoH7TUGM_2NhQb7FFVrK4kvaIK2lkAlxKiAfk1Hvk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ของเรื่อง “ค่าเสียหายส่วนแรก” (Excess & Deductible)</a></li>
+
+<li><a href="https://docs.google.com/presentation/d/13XBaushPrHr_b6VQDUYkpbVRBuOvS_qWl94G99sMi2A/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งบริการช่วยเหลือฉุกเฉินบนท้องถนน (Roadside Assistance)</a></li>
+
+        </ul>
+                <ul>
+                    <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
+        <ul>
+                    <li>xxxxxxx</li>
+        </ul>
+                    <div class="category-title">ผลิตภัณฑ์ (Product)</div>
+        <ul>
+         <li>xxxxxxx</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>5. ประกันการเดินทาง (Travel)</summary>
+            <div class="details-content">
+        <div class="category-title">ผลิตภัณฑ์ (Product)</div>
+                <ul>
+                  <li>xxxxxxx</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>6. บริการจัดการสิทธิประโยชน์ (Crescent Health)</summary>
+            <div class="details-content">
+        <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
+                <ul>
+                    <li>xxxxxxxxx</li>
+                </ul>
+            </div>
+        </details>
+
+    </div>
+
+   <script>
+    function searchFunction() {
+        let input = document.getElementById('searchInput');
+        let filterText = input.value.toLowerCase().trim();
+        
+        // แตกคำค้นหาเพื่อให้รองรับการพิมพ์หลายคำ (เช่น "ประกัน เดินทาง")
+        let searchKeywords = filterText.split(/\s+/).filter(word => word.length > 0); 
+        let detailsElements = document.querySelectorAll('details');
+
+        detailsElements.forEach(details => {
+            // ดึงข้อความ "ทั้งหมด" ทุกตัวอักษรที่อยู่ใน details ก้อนนี้
+            let detailsFullText = details.innerText.toLowerCase();
+            let summaryText = details.querySelector('summary').innerText.toLowerCase();
+            
+            // เช็คว่ามีคำค้นหา "ครบทุกคำ" อยู่ใน details ก้อนนี้หรือไม่ (อยู่ตรงไหนก็ได้)
+            let isMatchInDetails = false;
+            let isSummaryMatch = false;
+
+            if (searchKeywords.length > 0) {
+                isMatchInDetails = searchKeywords.every(word => detailsFullText.includes(word));
+                isSummaryMatch = searchKeywords.every(word => summaryText.includes(word));
+            }
+
+            if (searchKeywords.length === 0) {
+                // กรณีลบคำค้นหาทิ้งหมด: คืนค่าเดิม (หุบกล่องและแสดงทุกอย่าง)
+                details.style.display = "";
+                details.open = false;
+                details.querySelectorAll('li, .category-title, .note').forEach(el => el.style.display = "");
+                
+            } else if (isMatchInDetails) {
+                // กรณีเจอคำค้นหาใน details ก้อนนี้: ให้กางกล่องออก
+                details.style.display = "";
+                details.open = true;
+
+                // 1. กรองรายการย่อย (li)
+                let listItems = details.querySelectorAll('li');
+                listItems.forEach(li => {
+                    let itemText = li.innerText.toLowerCase();
+                    let isItemMatch = searchKeywords.every(word => itemText.includes(word));
+
+                    // แสดง li ถ้าคำตรงกับบรรทัดนี้ หรือถ้าตรงกับหัวข้อใหญ่ก็ให้แสดงลูกทั้งหมด
+                    if (isSummaryMatch || isItemMatch) {
+                        li.style.display = "";
+                    } else {
+                        li.style.display = "none";
+                    }
+                });
+
+                // 2. จัดการหมวดหมู่ (category-title)
+                details.querySelectorAll('ul').forEach(ul => {
+                    let visibleLis = Array.from(ul.querySelectorAll('li')).filter(li => li.style.display !== "none");
+                    let prevTitle = ul.previousElementSibling;
+                    
+                    if (prevTitle && prevTitle.classList.contains('category-title')) {
+                        let titleText = prevTitle.innerText.toLowerCase();
+                        let isTitleMatch = searchKeywords.every(word => titleText.includes(word));
+                        
+                        if (isTitleMatch) {
+                            // ถ้าคำค้นหาไปตรงกับ "ชื่อหมวดหมู่" ให้แสดงหมวดนั้น พร้อมกับแสดงรายการลูกข้างใต้ทั้งหมด
+                            prevTitle.style.display = "";
+                            ul.querySelectorAll('li').forEach(li => li.style.display = ""); 
+                        } else if (visibleLis.length === 0 && !isSummaryMatch) {
+                            // ถ้าไม่มีรายการลูกให้แสดงเลย และหัวข้อใหญ่ก็ไม่ตรง ให้ซ่อนชื่อหมวดนี้
+                            prevTitle.style.display = "none";
+                        } else {
+                            // ถ้ามีรายการลูกโชว์อยู่ ก็ให้แสดงชื่อหมวดด้วย
+                            prevTitle.style.display = "";
+                        }
+                    }
+                });
+
+                // 3. จัดการหมายเหตุ (note)
+                details.querySelectorAll('.note').forEach(note => {
+                    let noteText = note.innerText.toLowerCase();
+                    let isNoteMatch = searchKeywords.every(word => noteText.includes(word));
+                    
+                    // แสดง note ก็ต่อเมื่อคำค้นหาตรงกับ note, หรือตรงกับหัวข้อใหญ่, หรือมีรายการอื่นในกล่องนี้กำลังแสดงอยู่
+                    if (isNoteMatch || isSummaryMatch || Array.from(details.querySelectorAll('li')).some(li => li.style.display !== "none")) {
+                        note.style.display = "";
+                    } else {
+                        note.style.display = "none";
+                    }
+                });
+
+            } else {
+                // กรณีไม่เจอคำที่ค้นหา "เลย" ใน details ก้อนนี้: ให้ซ่อนทิ้งไปทั้งก้อน
+                details.style.display = "none";
+            }
+        });
+    }
+</script>
+</body>
+</html>
