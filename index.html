@@ -42,9 +42,23 @@
             padding: 40px 20px;
             z-index: 1000;
             box-sizing: border-box;
-            overflow-y: auto;
+            overflow-y: auto;   
         }
 
+        .menu-header {
+            font-size: 2.2em; /* ขนาดใหญ่ใกล้เคียงกับ H1 */
+            font-weight: 700;
+            color: var(--primary-color); /* สีเดียวกับ ศูนย์รวมข้อมูลทีม CS */
+            padding: 0 16px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* ปรับแต่ง Navbar เล็กน้อยเพื่อให้หัวข้อดูเด่น */
+        .navbar {
+            /* ... โค้ดเดิมของคุณ ... */
+            padding: 30px 20px;
+        }
         .navbar a {
             color: var(--text-muted);
             text-decoration: none;
@@ -223,13 +237,13 @@
 </head>
 <body>
 
-    <!-- ================= ส่วนของแถบเมนูด้านบน ================= -->
-   <nav class="navbar">
-    <div class="text-xl font-bold text-blue-600 mb-6 px-4">MENU</div> <!-- เพิ่มหัวข้อเมนู -->
-    <a href="https://porpaperclip-lab.github.io/csteamknowledgebase/#">🏠 หน้าแรก</a>
-    <a href="https://porpaperclip-lab.github.io/csteam-trainer/" class="active">📊 โครงสร้างผลิตภัณฑ์</a>
-    <a href="xxxx">🛠️ คู่มือการใช้งาน</a>
-</nav>
+   <!-- ================= ส่วนของแถบเมนูด้านบน ================= -->
+    <nav class="navbar">
+        <div class="menu-header">MENU</div> <!-- ปรับแก้ตรงนี้ -->
+        <a href="https://porpaperclip-lab.github.io/csteamknowledgebase/#">🏠 หน้าแรก</a>
+        <a href="https://porpaperclip-lab.github.io/csteam-trainer/" class="active">📊 โครงสร้างผลิตภัณฑ์</a>
+        <a href="xxxx">🛠️ คู่มือการใช้งาน</a>
+    </nav>
     <!-- ======================================================== -->
 
 
