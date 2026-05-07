@@ -313,21 +313,17 @@
 
     </div>
 
-   <script>
+  <script>
+    // ส่วนที่ 1: ระบบค้นหาดั้งเดิมของคุณ (Search Filter)
     function searchFunction() {
         let input = document.getElementById('searchInput');
         let filterText = input.value.toLowerCase().trim();
-        
-        // แตกคำค้นหาเพื่อให้รองรับการพิมพ์หลายคำ (เช่น "ประกัน เดินทาง")
         let searchKeywords = filterText.split(/\s+/).filter(word => word.length > 0); 
         let detailsElements = document.querySelectorAll('details');
 
         detailsElements.forEach(details => {
-            // ดึงข้อความ "ทั้งหมด" ทุกตัวอักษรที่อยู่ใน details ก้อนนี้
             let detailsFullText = details.innerText.toLowerCase();
             let summaryText = details.querySelector('summary').innerText.toLowerCase();
-            
-            // เช็คว่ามีคำค้นหา "ครบทุกคำ" อยู่ใน details ก้อนนี้หรือไม่ (อยู่ตรงไหนก็ได้)
             let isMatchInDetails = false;
             let isSummaryMatch = false;
 
@@ -337,23 +333,17 @@
             }
 
             if (searchKeywords.length === 0) {
-                // กรณีลบคำค้นหาทิ้งหมด: คืนค่าเดิม (หุบกล่องและแสดงทุกอย่าง)
                 details.style.display = "";
                 details.open = false;
                 details.querySelectorAll('li, .category-title, .note').forEach(el => el.style.display = "");
-                
             } else if (isMatchInDetails) {
-                // กรณีเจอคำค้นหาใน details ก้อนนี้: ให้กางกล่องออก
                 details.style.display = "";
                 details.open = true;
 
-                // 1. กรองรายการย่อย (li)
                 let listItems = details.querySelectorAll('li');
                 listItems.forEach(li => {
                     let itemText = li.innerText.toLowerCase();
                     let isItemMatch = searchKeywords.every(word => itemText.includes(word));
-
-                    // แสดง li ถ้าคำตรงกับบรรทัดนี้ หรือถ้าตรงกับหัวข้อใหญ่ก็ให้แสดงลูกทั้งหมด
                     if (isSummaryMatch || isItemMatch) {
                         li.style.display = "";
                     } else {
@@ -361,7 +351,6 @@
                     }
                 });
 
-                // 2. จัดการหมวดหมู่ (category-title)
                 details.querySelectorAll('ul').forEach(ul => {
                     let visibleLis = Array.from(ul.querySelectorAll('li')).filter(li => li.style.display !== "none");
                     let prevTitle = ul.previousElementSibling;
@@ -371,25 +360,19 @@
                         let isTitleMatch = searchKeywords.every(word => titleText.includes(word));
                         
                         if (isTitleMatch) {
-                            // ถ้าคำค้นหาไปตรงกับ "ชื่อหมวดหมู่" ให้แสดงหมวดนั้น พร้อมกับแสดงรายการลูกข้างใต้ทั้งหมด
                             prevTitle.style.display = "";
                             ul.querySelectorAll('li').forEach(li => li.style.display = ""); 
                         } else if (visibleLis.length === 0 && !isSummaryMatch) {
-                            // ถ้าไม่มีรายการลูกให้แสดงเลย และหัวข้อใหญ่ก็ไม่ตรง ให้ซ่อนชื่อหมวดนี้
                             prevTitle.style.display = "none";
                         } else {
-                            // ถ้ามีรายการลูกโชว์อยู่ ก็ให้แสดงชื่อหมวดด้วย
                             prevTitle.style.display = "";
                         }
                     }
                 });
 
-                // 3. จัดการหมายเหตุ (note)
                 details.querySelectorAll('.note').forEach(note => {
                     let noteText = note.innerText.toLowerCase();
                     let isNoteMatch = searchKeywords.every(word => noteText.includes(word));
-                    
-                    // แสดง note ก็ต่อเมื่อคำค้นหาตรงกับ note, หรือตรงกับหัวข้อใหญ่, หรือมีรายการอื่นในกล่องนี้กำลังแสดงอยู่
                     if (isNoteMatch || isSummaryMatch || Array.from(details.querySelectorAll('li')).some(li => li.style.display !== "none")) {
                         note.style.display = "";
                     } else {
@@ -398,11 +381,90 @@
                 });
 
             } else {
-                // กรณีไม่เจอคำที่ค้นหา "เลย" ใน details ก้อนนี้: ให้ซ่อนทิ้งไปทั้งก้อน
                 details.style.display = "none";
             }
         });
     }
-</script>
+
+    // ส่วนที่ 2: ระบบ AI Chat (Gemini)
+    const API_KEY = 'ใส่_API_KEY_ของคุณที่นี่'; 
+
+    const SYSTEM_INSTRUCTION = `
+    คุณคือผู้ช่วย AI ประจำศูนย์รวมข้อมูลทีม CS (CS Knowledge Base)
+    หน้าที่ของคุณคือสนับสนุนพนักงานให้ข้อมูลเกี่ยวกับผลิตภัณฑ์ทั้ง 6 กลุ่มหลัก และเตรียมตัวสำหรับ Mid-term/Final Exam (ซึ่งมีเกณฑ์ผ่าน 95%)
+    
+    คำแนะนำในการตอบ:
+    1. อ้างอิงข้อมูลจากโปรดักส์ต่างๆ เช่น ประกันกลุ่ม AXA, ประกันรถยนต์ BYD, ขั้นตอนในระบบ GISWeb, แอป Jolly เป็นต้น
+    2. โครงสร้างคำตอบ: ให้ออกแบบการตอบแบบโครงสร้าง MECE (แบ่งหมวดหมู่ชัดเจน ไม่ซ้ำซ้อน ไม่ตกหล่น)
+    3. หากพนักงานถามเรื่องความคุ้มค่า ให้สอดแทรกหลักการคิดแบบ ROI เพื่อให้พนักงานนำไปอธิบายลูกค้าต่อได้
+    4. ตอบสั้น กระชับ เป็นมืออาชีพ และให้กำลังใจพนักงาน
+    `;
+
+    const chatBox = document.getElementById("chat-box");
+    const userInput = document.getElementById("user-input");
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    }
+
+    async function sendMessage() {
+        const text = userInput.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user-msg');
+        userInput.value = '';
+        const loadingId = appendMessage('กำลังประมวลผลข้อมูล...', 'bot-msg loading');
+
+        try {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_instruction: { parts: { text: SYSTEM_INSTRUCTION } },
+                    contents: [{ parts: [{ text: text }] }]
+                })
+            });
+
+            const data = await response.json();
+            document.getElementById(loadingId).remove();
+
+            if (data.candidates && data.candidates.length > 0) {
+                // แปลง \n เป็น <br> เพื่อให้อ่านง่าย
+                let botReply = data.candidates[0].content.parts[0].text;
+                botReply = botReply.replace(/\n/g, "<br>");
+                appendHTMLMessage(botReply, 'bot-msg');
+            } else {
+                appendMessage("ขออภัยครับ ระบบไม่สามารถตอบสนองได้ในขณะนี้", 'bot-msg');
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            document.getElementById(loadingId).remove();
+            appendMessage("เกิดข้อผิดพลาดในการเชื่อมต่อเครือข่าย", 'bot-msg');
+        }
+    }
+
+    function appendMessage(text, className) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${className}`;
+        msgDiv.innerText = text;
+        const id = 'msg-' + Date.now();
+        msgDiv.id = id;
+        
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        return id;
+    }
+
+    // ฟังก์ชันเสริมสำหรับเรนเดอร์ข้อความที่มีการเว้นบรรทัดจาก AI
+    function appendHTMLMessage(htmlContent, className) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = `message ${className}`;
+        msgDiv.innerHTML = htmlContent;
+        chatBox.appendChild(msgDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+   </script>
 </body>
 </html>
