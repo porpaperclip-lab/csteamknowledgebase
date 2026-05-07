@@ -7,202 +7,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
+       :root {
             --primary-color: #1a73e8;
-            --bg-color: #f0f4f8;
             --card-bg: #ffffff;
-            --text-main: #333333;
             --text-muted: #5f6368;
-            --sidebar-width: 280px; /* เพิ่มบรรทัดนี้ */
         }
 
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0;
-            /* แก้ padding บรรทัดนี้ เพื่อหลบเมนูด้านซ้าย */
-            padding: 40px 20px 40px calc(var(--sidebar-width) + 20px); 
-        }
-
-       /* ================= ปรับ Style สำหรับแถบเมนู (Sidebar) ================= */
-        .navbar {
-            background-color: var(--card-bg);
-            box-shadow: 2px 0 10px rgba(0,0,0,0.08); /* เงามาด้านขวา */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: var(--sidebar-width);
-            height: 100vh; /* สูงเต็มจอ */
-            display: flex;
-            flex-direction: column; /* เรียงลงมาเป็นแนวตั้ง */
-            justify-content: flex-start;
-            gap: 15px;
-            padding: 40px 20px;
-            z-index: 1000;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-
-        .navbar a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 18px; /* ขนาดกลาง */
-            font-weight: 400; /* ตัวหนา */
-            padding: 12px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: block;
-            line-height: 1.4;
-        }
-
-        .navbar a:hover {
-            background-color: #e8eaed;
-            color: var(--primary-color);
-        }
-
-        .navbar a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        /* ================================================================= */
-
-        .header-container {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-        }
-
-        .header-container h1 {
-            color: var(--primary-color);
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header-container p {
-            color: var(--text-muted);
-            font-size: 1.1em;
-        }
-
-        .search-container {
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-sizing: border-box;
-            font-size: 16px;
-            font-family: 'Sarabun', sans-serif;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.2);
-        }
-
-        .content-container {
-            max-width: 800px;
+        body { font-family: 'Sarabun', sans-serif; }
+        
+        /* Ensure the capture area has a fixed width for perfect poster layout regardless of screen size */
+        #capture-area {
+            width: 1200px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
-        details {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
+        /* ================= Style สำหรับแถบเมนู (Navbar) ================= */
+       .navbar {
+    background-color: var(--card-bg);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.08);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 260px; /* ความกว้างเมนู */
+    height: 100vh; /* สูงเต็มจอ */
+    display: flex;
+    flex-direction: column; /* เรียงแนวตั้ง */
+    padding: 40px 20px;
+    gap: 12px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
 
-        details:hover {
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
+.navbar a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.1rem; /* ขนาดกลาง */
+    font-weight: 400;  /* ตัวหนา */
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: block;
+}
 
-        summary {
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            color: var(--text-main);
-        }
+.navbar a:hover {
+    background-color: #f1f3f4;
+    color: var(--primary-color);
+}
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
+.navbar a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+        /* ================================================================= */
+    </style>
+</head>
+<body class="bg-gray-200 min-h-screen pl-[280px] pt-12 pb-12 overflow-x-auto">
 
-        summary::before {
-            content: "▶";
-            color: var(--primary-color);
-            font-size: 0.8em;
-            margin-right: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        details[open] summary::before {
-            transform: rotate(90deg);
-        }
-
-        .details-content {
-            margin-top: 20px;
-            padding-left: 25px;
-            border-left: 3px solid #e8eaed;
-        }
-
-        .category-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        ul li::before {
-            content: "•";
-            color: #bdc1c6;
-            position: absolute;
-            left: 0;
-            font-size: 1.5em;
-            line-height: 1;
-        }
-
-        ul li:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #d93025;
-            font-style: italic;
-            margin-top: 10px;
-        }
-
+    <!-- ================= ส่วนของแถบเมนูด้านบน ================= -->
+   <nav class="navbar">
+    <div class="text-xl font-bold text-blue-600 mb-6 px-4">MENU</div> <!-- เพิ่มหัวข้อเมนู -->
+    <a href="https://porpaperclip-lab.github.io/csteamknowledgebase/#">🏠 หน้าแรก</a>
+    <a href="#" class="active">📊 โครงสร้างผลิตภัณฑ์</a>
+    <a href="link-to-other-page.html">🛠️ คู่มือการใช้งาน</a>
+</nav>
+    <!-- ======================================================== -->
+    
         /* รองรับหน้าจอขนาดเล็ก (มือถือ) */
         @media (max-width: 768px) {
             body {
