@@ -21,13 +21,50 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
+            /* ปรับ padding-top เพิ่มขึ้น เพื่อไม่ให้แถบเมนูด้านบนบังเนื้อหา */
+            padding: 90px 20px 40px 20px; 
         }
+
+        /* ================= เพิ่ม Style สำหรับแถบเมนู (Navbar) ================= */
+        .navbar {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: fixed; /* ติดขอบจอด้านบนเสมอ */
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .navbar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #e8eaed;
+            color: var(--primary-color);
+        }
+
+        .navbar a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        /* ================================================================= */
 
         .header-container {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 20px auto; /* ลด margin ด้านล่างลงนิดหน่อยเพื่อให้ใกล้กับช่องค้นหา */
+            margin: 0 auto 20px auto;
         }
 
         .header-container h1 {
@@ -41,7 +78,6 @@
             font-size: 1.1em;
         }
 
-        /* เพิ่ม Style สำหรับกล่องค้นหา */
         .search-container {
             max-width: 800px;
             margin: 0 auto 30px auto;
@@ -73,7 +109,6 @@
             gap: 15px;
         }
 
-        /* การปรับแต่งส่วนย่อ-ขยาย (Accordion) */
         details {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -90,7 +125,7 @@
             font-size: 1.2em;
             font-weight: 600;
             cursor: pointer;
-            list-style: none; /* ซ่อนลูกศร default */
+            list-style: none;
             display: flex;
             align-items: center;
             color: var(--text-main);
@@ -164,6 +199,14 @@
 </head>
 <body>
 
+    <!-- ================= ส่วนของแถบเมนูด้านบน ================= -->
+    <nav class="navbar">
+        <a href="#" class="active">🏠 หน้าแรก</a>
+        <a href="link-to-other-page.html">📞 ติดต่อทีมงาน</a>
+        <a href="link-to-tools.html">🛠️ เครื่องมืออื่นๆ</a>
+    </nav>
+    <!-- ======================================================== -->
+
     <div class="header-container">
         <h1>📚 ศูนย์รวมข้อมูลทีม CS</h1>
         <p>สารบัญค้นหาโปรดักส์และคู่มือการทำงาน (CS Knowledge Base)</p>
@@ -174,19 +217,19 @@
     </div>
 
     <div class="content-container">
-
+        <!-- เนื้อหาด้านในเหมือนเดิมทั้งหมด -->
         <details>
             <summary>1. แอปพลิเคชันของบริษัท (Company application)</summary>
             <div class="details-content">
                 <div class="category-title">จอยลี่แอปพลิเคชัน (Jolly)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1oZKsgxpA_ggYwgAK_-XhtrLprd0_G3sQpMS8_DX_-0M/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้งานเบื้องต้นของแอปพลิเคชัน</a></li>
-<li><a href="https://docs.google.com/presentation/d/1xTeSqn462DlEONHnqzoekSMf4YuIlcy-1m_g8Yd-uuE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้สิทธิพิเศษของลูกค้าบนแอปพลิเคชัน</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1oZKsgxpA_ggYwgAK_-XhtrLprd0_G3sQpMS8_DX_-0M/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้งานเบื้องต้นของแอปพลิเคชัน</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1xTeSqn462DlEONHnqzoekSMf4YuIlcy-1m_g8Yd-uuE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการใช้สิทธิพิเศษของลูกค้าบนแอปพลิเคชัน</a></li>
                 </ul>
                 <div class="category-title">เครสเซนท์ เฮลท์แอปพลิเคชัน (Crescent Health)</div>
-        <ul>
-<li><a href="ใส่ลิงค์" target="_blank" style="text-decoration: none; color: inherit;">xxxxxxx</a></li>
-        </ul>
+                <ul>
+                    <li><a href="ใส่ลิงค์" target="_blank" style="text-decoration: none; color: inherit;">xxxxxxx</a></li>
+                </ul>
             </div>
         </details>
 
@@ -195,18 +238,18 @@
             <div class="details-content">
                 <div class="category-title">ผลิตภัณฑ์ (Product)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1OGe_v3ce8vAtVyrePgTVJJsUCdG9Yz0Ny3kx9SKdZqc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ดีแทคโมบายแคร์ (Dtac Mobile Care)</a></li>
-<li><a href="https://docs.google.com/presentation/d/17u4dDRt4j_X4D2_mqUmevp3gZERVK2go2Emp8W-dG3o/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอ็ม เรสซิ่ง โปรดักส์ (M-leasing Product)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1Q235P1-Tcicxix7JWFcTOu9ojgeomoX3ytYneiGnHwY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอส ลีสซิ่ง โปรดักส์ (S-leasing Product)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1IACv8qTzyYddrKKpf8JPlGv_Gnb6lzLDXpaxN7eWH5U/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์เกจเจ็ทแคร์ (Sunday Gadget Care)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1YXRz5S7mX_KMdVFUyUyQ8B-RJkE3LiJjD31-LdYUkWY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริการดูแลอุปกรณ์บริษัท ทรู (True B2B Mobile Care)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1AoHd0FnbB5Q8j6_3hXb3hW5nEvoZhsuLvl8wlZNBKcU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การแนะนำลูกค้าย้ายมาใช้บริการ (Retention program)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1OGe_v3ce8vAtVyrePgTVJJsUCdG9Yz0Ny3kx9SKdZqc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ดีแทคโมบายแคร์ (Dtac Mobile Care)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/17u4dDRt4j_X4D2_mqUmevp3gZERVK2go2Emp8W-dG3o/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอ็ม เรสซิ่ง โปรดักส์ (M-leasing Product)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1Q235P1-Tcicxix7JWFcTOu9ojgeomoX3ytYneiGnHwY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัท เอส ลีสซิ่ง โปรดักส์ (S-leasing Product)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1IACv8qTzyYddrKKpf8JPlGv_Gnb6lzLDXpaxN7eWH5U/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์เกจเจ็ทแคร์ (Sunday Gadget Care)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1YXRz5S7mX_KMdVFUyUyQ8B-RJkE3LiJjD31-LdYUkWY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริการดูแลอุปกรณ์บริษัท ทรู (True B2B Mobile Care)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1AoHd0FnbB5Q8j6_3hXb3hW5nEvoZhsuLvl8wlZNBKcU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การแนะนำลูกค้าย้ายมาใช้บริการ (Retention program)</a></li>
                 </ul>
                 <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1C1Li67N1qxsqmKQWL55mXM1OWrWCeO0jikMhKT750wY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การค้นหาข้อมูลและดูเคลม (Gadget Admin info x Claim)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1QLKnv4Fqey6WMPFEIoviCXlSgJ80gNFWQ3hXm1IQFSE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการตรวจสอบเครื่องก่อนสมัครบริการ (Pre-inspection)</a></li>
-<li><a href="https://docs.google.com/presentation/d/18iK2A4uXuhAYGt2Co5bzSkqDW4_y6DiyQctrv1-E3Ys/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ลูกค้านำเครื่องไปซ่อมที่ศูนย์บริการเอง (Walk-in Service Center)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1C1Li67N1qxsqmKQWL55mXM1OWrWCeO0jikMhKT750wY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การค้นหาข้อมูลและดูเคลม (Gadget Admin info x Claim)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1QLKnv4Fqey6WMPFEIoviCXlSgJ80gNFWQ3hXm1IQFSE/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการตรวจสอบเครื่องก่อนสมัครบริการ (Pre-inspection)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/18iK2A4uXuhAYGt2Co5bzSkqDW4_y6DiyQctrv1-E3Ys/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ลูกค้านำเครื่องไปซ่อมที่ศูนย์บริการเอง (Walk-in Service Center)</a></li>
                 </ul>
             </div>
         </details>
@@ -215,36 +258,35 @@
             <summary>3. ประกันสุขภาพ (Health)</summary>
             <div class="details-content">
                 <div class="note">
-    *หมายเหตุ: <a href="https://docs.google.com/spreadsheets/d/1DcockXJ-5pYN4wYWHfDyDbyIYSoP-BUlgDLoH7odFlI/edit?gid=0#gid=0" target="_blank" style="color: var(--primary-color); text-decoration: underline;">ตารางบัตรเครดิตที่ร่วมรายการ (ผ่อนชำระ)</a>
-</div>
+                    *หมายเหตุ: <a href="https://docs.google.com/spreadsheets/d/1DcockXJ-5pYN4wYWHfDyDbyIYSoP-BUlgDLoH7odFlI/edit?gid=0#gid=0" target="_blank" style="color: var(--primary-color); text-decoration: underline;">ตารางบัตรเครดิตที่ร่วมรายการ (ผ่อนชำระ)</a>
+                </div>
                 <div class="category-title">พื้นฐานทั่วไป (Basic)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1Vej0FpFkyWigiPYNOK-qgXW3BXojzsDXx9sDKIdkULU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ผลประโยชน์ทั่วไปเบื้องต้น (Coverage Detail 101)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1UF-m27FneHSUkfmUJxgvhPXBtVe9CoZB_ynWJkEkAzs/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การตรวจสอบสิทธิ์และการใช้สิทธิ์ (Customer Verification)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1hz1yAPDk1yfAuJL5fc95uGOJ-I_0y8AST7Acn8td0Sk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การเคลมสินไหมประกันสุขภาพทั่วไป (Claim Reimbursements)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1p4GtWt5ITV6P5amwoLlocN2qpxoE8Yzu9r8JThlYlg4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ค่าเสียหายส่วนร่วมและส่วนแรก (Co-Payment and Deductible)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1Zhff9nlm2Zx41FkV6jI_sD7CMsLHKbXxpeV2VZKBwL0/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ผลประโยชน์การทำกายภาพบำบัด (Benefit Physical therapy)</a></li>
-<li><a href="https://docs.google.com/presentation/d/13kvNkbx9rI_wSQjuCT7ZUPnR8uiBORB65NfI8AYo0tQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ปรึกษาแพทย์ทางไกล (Telemedicine)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1HSk2E-tkvoChw3XI6JsLFuUIP2srPfZO-F9q6DCTCnU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การใช้บริการร้านขายยาในเครือ (Walk-in Pharmacy Service)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1sw4Lc67cJeUXIK08VIB2AWhriyi97lL9BNEjTiagmzc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">เงิ่อนไขการเคลมโควิด-19 (Claim Covid-19)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1Vej0FpFkyWigiPYNOK-qgXW3BXojzsDXx9sDKIdkULU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ผลประโยชน์ทั่วไปเบื้องต้น (Coverage Detail 101)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1UF-m27FneHSUkfmUJxgvhPXBtVe9CoZB_ynWJkEkAzs/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การตรวจสอบสิทธิ์และการใช้สิทธิ์ (Customer Verification)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1hz1yAPDk1yfAuJL5fc95uGOJ-I_0y8AST7Acn8td0Sk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การเคลมสินไหมประกันสุขภาพทั่วไป (Claim Reimbursements)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1p4GtWt5ITV6P5amwoLlocN2qpxoE8Yzu9r8JThlYlg4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ค่าเสียหายส่วนร่วมและส่วนแรก (Co-Payment and Deductible)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1Zhff9nlm2Zx41FkV6jI_sD7CMsLHKbXxpeV2VZKBwL0/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ผลประโยชน์การทำกายภาพบำบัด (Benefit Physical therapy)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/13kvNkbx9rI_wSQjuCT7ZUPnR8uiBORB65NfI8AYo0tQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ปรึกษาแพทย์ทางไกล (Telemedicine)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1HSk2E-tkvoChw3XI6JsLFuUIP2srPfZO-F9q6DCTCnU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การใช้บริการร้านขายยาในเครือ (Walk-in Pharmacy Service)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1sw4Lc67cJeUXIK08VIB2AWhriyi97lL9BNEjTiagmzc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">เงิ่อนไขการเคลมโควิด-19 (Claim Covid-19)</a></li>
                 </ul>
                 <div class="category-title">ประกันสุขภาพกลุ่ม (Employee)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1cBuIzfv6FpDdlmwp9eOcncXzXuUHGD0LXLHUnxnww8k/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">แอกซ่าประกันภัย (AXA Employee Benefits Group)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1ILXIm1h3ra7XI8_S-ijs3vBV5GXSZUEmlxHdo_wt30s/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัทรับความเสี่ยงเอง (Self-Insured Employee Benefits Group)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1Z7JSWb_Brtz99rITMIihjF4DsSynkspuMmQAGLd0E_c/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์ประกันภัย (Sunday Employee Benefits Group)</a></li>
-                
+                    <li><a href="https://docs.google.com/presentation/d/1cBuIzfv6FpDdlmwp9eOcncXzXuUHGD0LXLHUnxnww8k/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">แอกซ่าประกันภัย (AXA Employee Benefits Group)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1ILXIm1h3ra7XI8_S-ijs3vBV5GXSZUEmlxHdo_wt30s/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">บริษัทรับความเสี่ยงเอง (Self-Insured Employee Benefits Group)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1Z7JSWb_Brtz99rITMIihjF4DsSynkspuMmQAGLd0E_c/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ซันเดย์ประกันภัย (Sunday Employee Benefits Group)</a></li>
                 </ul>
                 <div class="category-title">ประกันรายเดี่ยว (Retail)</div>
                 <ul>
-<li><a href="https://docs.google.com/presentation/d/1Pde9hAkSiqMsTL-oqWK3MUc50P_15PWOsdRONWBNOPA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทแอกซ่าประกันภัยขายผ่านซันเดย์โบรคเกอร์ (AXA Product Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1i3ZuRSAdjGyOqizdTDgSlmYWtW-4vhrFGJStJw6ENfA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทเมืองไทยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (MTI Product Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1RKb6bObA0amNrlOJemjGoR66jVx9T1d9BL-YbMmyRFQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านทางโทรศัพท์ (Sunday Product Broker Telesales Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1ZYxTVEnMqQ3XyvThE-pE0O9sSeYXIExRraCFayWFEdk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Product Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1lQJUWD7YyChXpSbLPUKXPwoRjRtZ8wYLKjbNmAnO6Fk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัททิพยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (TIP Product Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1nhAniPdj8XzRlMvsShuXRb5xvaFion2JDRQQZphyrR4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันอุบัติเหตุส่วนบุคคลของบริษัทกรุงเทพประกันภัยขายผ่านซันเดย์โบรคเกอร์ (BKI Product Retail)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1d-5BjgztqL1Za48l_3fhWUjOmcyWcYjnLjBM2A8Fh9Q/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">โปรดักสที่ขายโดยบริษัทซันเดย์ประกันภัย (Sunday Insurance Product)</a></li>
-<li><a href="https://docs.google.com/presentation/d/14e9WJhXYu5UttwDagPx6QQ3RPQLA3Xq9oIimtvQ83Co/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การปรับเบี้ยประกันปีต่ออายุสำหรับลูกค้ารายเดียวซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Renewal Repricing Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1Pde9hAkSiqMsTL-oqWK3MUc50P_15PWOsdRONWBNOPA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทแอกซ่าประกันภัยขายผ่านซันเดย์โบรคเกอร์ (AXA Product Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1i3ZuRSAdjGyOqizdTDgSlmYWtW-4vhrFGJStJw6ENfA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทเมืองไทยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (MTI Product Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1RKb6bObA0amNrlOJemjGoR66jVx9T1d9BL-YbMmyRFQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านทางโทรศัพท์ (Sunday Product Broker Telesales Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1ZYxTVEnMqQ3XyvThE-pE0O9sSeYXIExRraCFayWFEdk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัทซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Product Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1lQJUWD7YyChXpSbLPUKXPwoRjRtZ8wYLKjbNmAnO6Fk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันรายเดี่ยวของบริษัททิพยประกันภัยขายผ่านซันเดย์โบรคเกอร์ (TIP Product Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1nhAniPdj8XzRlMvsShuXRb5xvaFion2JDRQQZphyrR4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ประกันอุบัติเหตุส่วนบุคคลของบริษัทกรุงเทพประกันภัยขายผ่านซันเดย์โบรคเกอร์ (BKI Product Retail)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1d-5BjgztqL1Za48l_3fhWUjOmcyWcYjnLjBM2A8Fh9Q/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">โปรดักสที่ขายโดยบริษัทซันเดย์ประกันภัย (Sunday Insurance Product)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/14e9WJhXYu5UttwDagPx6QQ3RPQLA3Xq9oIimtvQ83Co/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การปรับเบี้ยประกันปีต่ออายุสำหรับลูกค้ารายเดียวซันเดย์ประกันภัยขายผ่านซันเดย์โบรคเกอร์ (Sunday Renewal Repricing Retail)</a></li>
                 </ul>
             </div>
         </details>
@@ -252,38 +294,35 @@
         <details>
             <summary>4. ประกันรถยนต์ (Motor)</summary>
             <div class="details-content">
- <ul>
-                    <div class="category-title">พื้นฐานทั่วไป (Basic)</div>
-        <ul>
-<li><a href="https://docs.google.com/presentation/d/1yuGlJozMsL8mSORuslyBwpvY8b4Q0V_LQUho0pgt7UA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้พื้นฐานประกันรถยนต์ (Car Insurance)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1JEVloB2YcBPWZ1ZZ3TFBit7jmL6vn-KFSnDX3taSOrA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การนำรถเข้าซ่อม (Car Repairment)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1osXESGpGA2yG8j97owRv0GHTfr_aBT2xWt0wFu6Ltb4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ในการใช้รถและการขับขี่ (Essential Car Knowledge and Driving Skills)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1t1hoH7TUGM_2NhQb7FFVrK4kvaIK2lkAlxKiAfk1Hvk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ของเรื่อง “ค่าเสียหายส่วนแรก” (Excess & Deductible)</a></li>
-<li><a href="https://docs.google.com/presentation/d/13XBaushPrHr_b6VQDUYkpbVRBuOvS_qWl94G99sMi2A/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งบริการช่วยเหลือฉุกเฉินบนท้องถนน (Roadside Assistance)</a></li>
-
-        </ul>
+                <div class="category-title">พื้นฐานทั่วไป (Basic)</div>
                 <ul>
-                    <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
-        <ul>
-<li><a href="https://docs.google.com/presentation/d/1Usi5AU4FvfpJN_563nhl1-dR6BNNM2WF0b89lEJw7Y8/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การต่ออายุกรมธรรม์รถยนต์อัตโนมัติ (Automate Renewal)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1uKAFNawclbwlheAo4DzDSBHG9nTVtLL_Do_RLwQy0PI/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">เคลมรถยนต์ผ่านแอปพลิเคชันจอยลี่ (Claim Motor via Jolly Application)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1pU_tyoVNnhOobsW9H253NwZjVv6gPk8t2WSsFulizLk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งอุบัติเหตุกรณีเสียหายหนัก (Claims heavy damage case)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1f6bvDyQKKg6OLhfoE3hLmDnc4ziMy52mZPPKTlSi4QI/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งอุบัติเหตุ (Claims Notification)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1jx2uvUDxaJxrCV_0hmwD4Gt9b178j_s6kTu_yEeufNU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การใส่ข้อมูลพิเศษในจีสเว็บ (Data Input in GISWeb)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1y9Qz_s46Yaxp8a24MFUokWgxhfOvmeX8Gdq9KFk7-FY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การลงข้อมูลรายการแจ้งเคลมประกันรถยนต์ (New BOB Motor system)</a></li>
-<li><a href="https://docs.google.com/presentation/d/17PGaQZdNlV36-SEg7JM3zW3aVI2eZ0gKM3PNJhrjWG0/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การเปิดเคลมแห้งที่อู่ (Open dry claim at garage)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1mDolBmKf0-UA6MMbwQVyabeWpN-bEGBWar7Of7ZAdhs/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ขั้นตอนการปิดเลขรับแจ้งและเปิดเคลม (Registration claims motor)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1xxpP61eBMqTIn1ROC0AhlfJI8_lSjfzMMPSFuMsOdkU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการขอรับรายงานผลจากเจ้าหน้าที่สำรวจภัย (Report from surveyor)</a></li>
-<li><a href="https://docs.google.com/presentation/d/16k0zM38bVyrkLt-l5qMK7JNtXr8YCx07oq_EwXLd14I/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การติดตามเจ้าหน้าที่สำรวจภัย (Surveyor Audit)</a></li>
-        </ul>
-                    <div class="category-title">ผลิตภัณฑ์ (Product)</div>
-        <ul>
-<li><a href="https://docs.google.com/presentation/d/1JlUW8KaUZ9neS6KFzpvOuSge7BLru5mK7uUhJU2XVQc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">โบรกเกอร์ในเครือประกันซันเดย์ประกันภัย (Broker of Sunday Insurance)</a></li>
-<li><a href="https://docs.google.com/presentation/d/15KsjMJPByLOuOIgNQqSffWpbGuJtOG4qAH8ArhTbgjQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">แคมเปญขับขี่ปลอดภัยได้ส่วนลด (BYD cash-back campaign 2025)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1lOIFNWLggn1XHibQXYAOW3_6XcoSDKimbM4Z04iRmuA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">กรมธรรม์ของบีวายดี (BYD Motor policy)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1v0w3k7otu_K1x-0KHg2rh8EOS2csmQwpu3PuHW_7MBM/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">กรมธรรม์ประกันรถยนต์ไฟฟ้า (EV Motor Policy)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1D0OW_eaWNsvhvsURTGlKRxyHflbA45JjGlip-5Bzlvo/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การซื้อประกันรถยนต์หน้าเว็บไซต์ซันเดย์โบรกเกอร์ (Motor Retail via Website)</a></li>
-<li><a href="https://docs.google.com/presentation/d/1yoGquCNbD6aruoN4pthkaqmR8mOQCMyITX74OZkZoBk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ดีเลอร์ของประกันซันเดย์ประกันภัย (Sunday Insurance Business Partners) </a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1yuGlJozMsL8mSORuslyBwpvY8b4Q0V_LQUho0pgt7UA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้พื้นฐานประกันรถยนต์ (Car Insurance)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1JEVloB2YcBPWZ1ZZ3TFBit7jmL6vn-KFSnDX3taSOrA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การนำรถเข้าซ่อม (Car Repairment)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1osXESGpGA2yG8j97owRv0GHTfr_aBT2xWt0wFu6Ltb4/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ในการใช้รถและการขับขี่ (Essential Car Knowledge and Driving Skills)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1t1hoH7TUGM_2NhQb7FFVrK4kvaIK2lkAlxKiAfk1Hvk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ความรู้ของเรื่อง “ค่าเสียหายส่วนแรก” (Excess & Deductible)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/13XBaushPrHr_b6VQDUYkpbVRBuOvS_qWl94G99sMi2A/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งบริการช่วยเหลือฉุกเฉินบนท้องถนน (Roadside Assistance)</a></li>
+                </ul>
+                <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1Usi5AU4FvfpJN_563nhl1-dR6BNNM2WF0b89lEJw7Y8/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การต่ออายุกรมธรรม์รถยนต์อัตโนมัติ (Automate Renewal)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1uKAFNawclbwlheAo4DzDSBHG9nTVtLL_Do_RLwQy0PI/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">เคลมรถยนต์ผ่านแอปพลิเคชันจอยลี่ (Claim Motor via Jolly Application)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1pU_tyoVNnhOobsW9H253NwZjVv6gPk8t2WSsFulizLk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งอุบัติเหตุกรณีเสียหายหนัก (Claims heavy damage case)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1f6bvDyQKKg6OLhfoE3hLmDnc4ziMy52mZPPKTlSi4QI/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การรับแจ้งอุบัติเหตุ (Claims Notification)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1jx2uvUDxaJxrCV_0hmwD4Gt9b178j_s6kTu_yEeufNU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การใส่ข้อมูลพิเศษในจีสเว็บ (Data Input in GISWeb)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1y9Qz_s46Yaxp8a24MFUokWgxhfOvmeX8Gdq9KFk7-FY/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การลงข้อมูลรายการแจ้งเคลมประกันรถยนต์ (New BOB Motor system)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/17PGaQZdNlV36-SEg7JM3zW3aVI2eZ0gKM3PNJhrjWG0/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การเปิดเคลมแห้งที่อู่ (Open dry claim at garage)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1mDolBmKf0-UA6MMbwQVyabeWpN-bEGBWar7Of7ZAdhs/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ขั้นตอนการปิดเลขรับแจ้งและเปิดเคลม (Registration claims motor)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1xxpP61eBMqTIn1ROC0AhlfJI8_lSjfzMMPSFuMsOdkU/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">วิธีการขอรับรายงานผลจากเจ้าหน้าที่สำรวจภัย (Report from surveyor)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/16k0zM38bVyrkLt-l5qMK7JNtXr8YCx07oq_EwXLd14I/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การติดตามเจ้าหน้าที่สำรวจภัย (Surveyor Audit)</a></li>
+                </ul>
+                <div class="category-title">ผลิตภัณฑ์ (Product)</div>
+                <ul>
+                    <li><a href="https://docs.google.com/presentation/d/1JlUW8KaUZ9neS6KFzpvOuSge7BLru5mK7uUhJU2XVQc/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">โบรกเกอร์ในเครือประกันซันเดย์ประกันภัย (Broker of Sunday Insurance)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/15KsjMJPByLOuOIgNQqSffWpbGuJtOG4qAH8ArhTbgjQ/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">แคมเปญขับขี่ปลอดภัยได้ส่วนลด (BYD cash-back campaign 2025)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1lOIFNWLggn1XHibQXYAOW3_6XcoSDKimbM4Z04iRmuA/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">กรมธรรม์ของบีวายดี (BYD Motor policy)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1v0w3k7otu_K1x-0KHg2rh8EOS2csmQwpu3PuHW_7MBM/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">กรมธรรม์ประกันรถยนต์ไฟฟ้า (EV Motor Policy)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1D0OW_eaWNsvhvsURTGlKRxyHflbA45JjGlip-5Bzlvo/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">การซื้อประกันรถยนต์หน้าเว็บไซต์ซันเดย์โบรกเกอร์ (Motor Retail via Website)</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1yoGquCNbD6aruoN4pthkaqmR8mOQCMyITX74OZkZoBk/edit?usp=drive_link" target="_blank" style="text-decoration: none; color: inherit;">ดีเลอร์ของประกันซันเดย์ประกันภัย (Sunday Insurance Business Partners) </a></li>
                 </ul>
             </div>
         </details>
@@ -291,20 +330,20 @@
         <details>
             <summary>5. ประกันการเดินทาง (Travel)</summary>
             <div class="details-content">
-        <div class="category-title">ผลิตภัณฑ์ (Product)</div>
+                <div class="category-title">ผลิตภัณฑ์ (Product)</div>
                 <ul>
-                  <li>xxxxxxx</li>
+                    <li>xxxxxxx</li>
                 </ul>
             </div>
         </details>
 
         <details>
             <summary>6. บริการจัดการสิทธิประโยชน์ (Crescent Health)</summary>
-                <div class="details-content">
+            <div class="details-content">
                 <div class="note">
-    *หมายเหตุ: <a href="https://drive.google.com/file/d/1N9ZGGwcGMny718xyXqG3bMrdFWvKYt_P/view?usp=drive_link" target="_blank" style="color: var(--primary-color); text-decoration: underline;">วิธีการวางบิลของบริษัทที่ใช้บริการ</a>
-</div>
-        <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
+                    *หมายเหตุ: <a href="https://drive.google.com/file/d/1N9ZGGwcGMny718xyXqG3bMrdFWvKYt_P/view?usp=drive_link" target="_blank" style="color: var(--primary-color); text-decoration: underline;">วิธีการวางบิลของบริษัทที่ใช้บริการ</a>
+                </div>
+                <div class="category-title">ขั้นตอนการทำงาน (Process)</div>
                 <ul>
                     <li>xxxxxxxxx</li>
                 </ul>
@@ -313,78 +352,96 @@
 
     </div>
 
-  <script>
-    // ส่วนที่ 1: ระบบค้นหาดั้งเดิมของคุณ (Search Filter)
-    function searchFunction() {
-        let input = document.getElementById('searchInput');
-        let filterText = input.value.toLowerCase().trim();
-        let searchKeywords = filterText.split(/\s+/).filter(word => word.length > 0); 
-        let detailsElements = document.querySelectorAll('details');
+    <script>
+        function searchFunction() {
+            let input = document.getElementById('searchInput');
+            let filterText = input.value.toLowerCase().trim();
+            
+            // แตกคำค้นหาเพื่อให้รองรับการพิมพ์หลายคำ (เช่น "ประกัน เดินทาง")
+            let searchKeywords = filterText.split(/\s+/).filter(word => word.length > 0); 
+            let detailsElements = document.querySelectorAll('details');
 
-        detailsElements.forEach(details => {
-            let detailsFullText = details.innerText.toLowerCase();
-            let summaryText = details.querySelector('summary').innerText.toLowerCase();
-            let isMatchInDetails = false;
-            let isSummaryMatch = false;
+            detailsElements.forEach(details => {
+                // ดึงข้อความ "ทั้งหมด" ทุกตัวอักษรที่อยู่ใน details ก้อนนี้
+                let detailsFullText = details.innerText.toLowerCase();
+                let summaryText = details.querySelector('summary').innerText.toLowerCase();
+                
+                // เช็คว่ามีคำค้นหา "ครบทุกคำ" อยู่ใน details ก้อนนี้หรือไม่ (อยู่ตรงไหนก็ได้)
+                let isMatchInDetails = false;
+                let isSummaryMatch = false;
 
-            if (searchKeywords.length > 0) {
-                isMatchInDetails = searchKeywords.every(word => detailsFullText.includes(word));
-                isSummaryMatch = searchKeywords.every(word => summaryText.includes(word));
-            }
+                if (searchKeywords.length > 0) {
+                    isMatchInDetails = searchKeywords.every(word => detailsFullText.includes(word));
+                    isSummaryMatch = searchKeywords.every(word => summaryText.includes(word));
+                }
 
-            if (searchKeywords.length === 0) {
-                details.style.display = "";
-                details.open = false;
-                details.querySelectorAll('li, .category-title, .note').forEach(el => el.style.display = "");
-            } else if (isMatchInDetails) {
-                details.style.display = "";
-                details.open = true;
-
-                let listItems = details.querySelectorAll('li');
-                listItems.forEach(li => {
-                    let itemText = li.innerText.toLowerCase();
-                    let isItemMatch = searchKeywords.every(word => itemText.includes(word));
-                    if (isSummaryMatch || isItemMatch) {
-                        li.style.display = "";
-                    } else {
-                        li.style.display = "none";
-                    }
-                });
-
-                details.querySelectorAll('ul').forEach(ul => {
-                    let visibleLis = Array.from(ul.querySelectorAll('li')).filter(li => li.style.display !== "none");
-                    let prevTitle = ul.previousElementSibling;
+                if (searchKeywords.length === 0) {
+                    // กรณีลบคำค้นหาทิ้งหมด: คืนค่าเดิม (หุบกล่องและแสดงทุกอย่าง)
+                    details.style.display = "";
+                    details.open = false;
+                    details.querySelectorAll('li, .category-title, .note').forEach(el => el.style.display = "");
                     
-                    if (prevTitle && prevTitle.classList.contains('category-title')) {
-                        let titleText = prevTitle.innerText.toLowerCase();
-                        let isTitleMatch = searchKeywords.every(word => titleText.includes(word));
-                        
-                        if (isTitleMatch) {
-                            prevTitle.style.display = "";
-                            ul.querySelectorAll('li').forEach(li => li.style.display = ""); 
-                        } else if (visibleLis.length === 0 && !isSummaryMatch) {
-                            prevTitle.style.display = "none";
+                } else if (isMatchInDetails) {
+                    // กรณีเจอคำค้นหาใน details ก้อนนี้: ให้กางกล่องออก
+                    details.style.display = "";
+                    details.open = true;
+
+                    // 1. กรองรายการย่อย (li)
+                    let listItems = details.querySelectorAll('li');
+                    listItems.forEach(li => {
+                        let itemText = li.innerText.toLowerCase();
+                        let isItemMatch = searchKeywords.every(word => itemText.includes(word));
+
+                        // แสดง li ถ้าคำตรงกับบรรทัดนี้ หรือถ้าตรงกับหัวข้อใหญ่ก็ให้แสดงลูกทั้งหมด
+                        if (isSummaryMatch || isItemMatch) {
+                            li.style.display = "";
                         } else {
-                            prevTitle.style.display = "";
+                            li.style.display = "none";
                         }
-                    }
-                });
+                    });
 
-                details.querySelectorAll('.note').forEach(note => {
-                    let noteText = note.innerText.toLowerCase();
-                    let isNoteMatch = searchKeywords.every(word => noteText.includes(word));
-                    if (isNoteMatch || isSummaryMatch || Array.from(details.querySelectorAll('li')).some(li => li.style.display !== "none")) {
-                        note.style.display = "";
-                    } else {
-                        note.style.display = "none";
-                    }
-                });
+                    // 2. จัดการหมวดหมู่ (category-title)
+                    details.querySelectorAll('ul').forEach(ul => {
+                        let visibleLis = Array.from(ul.querySelectorAll('li')).filter(li => li.style.display !== "none");
+                        let prevTitle = ul.previousElementSibling;
+                        
+                        if (prevTitle && prevTitle.classList.contains('category-title')) {
+                            let titleText = prevTitle.innerText.toLowerCase();
+                            let isTitleMatch = searchKeywords.every(word => titleText.includes(word));
+                            
+                            if (isTitleMatch) {
+                                // ถ้าคำค้นหาไปตรงกับ "ชื่อหมวดหมู่" ให้แสดงหมวดนั้น พร้อมกับแสดงรายการลูกข้างใต้ทั้งหมด
+                                prevTitle.style.display = "";
+                                ul.querySelectorAll('li').forEach(li => li.style.display = ""); 
+                            } else if (visibleLis.length === 0 && !isSummaryMatch) {
+                                // ถ้าไม่มีรายการลูกให้แสดงเลย และหัวข้อใหญ่ก็ไม่ตรง ให้ซ่อนชื่อหมวดนี้
+                                prevTitle.style.display = "none";
+                            } else {
+                                // ถ้ามีรายการลูกโชว์อยู่ ก็ให้แสดงชื่อหมวดด้วย
+                                prevTitle.style.display = "";
+                            }
+                        }
+                    });
 
-            } else {
-                details.style.display = "none";
-            }
-        });
-    }
-   </script>
+                    // 3. จัดการหมายเหตุ (note)
+                    details.querySelectorAll('.note').forEach(note => {
+                        let noteText = note.innerText.toLowerCase();
+                        let isNoteMatch = searchKeywords.every(word => noteText.includes(word));
+                        
+                        // แสดง note ก็ต่อเมื่อคำค้นหาตรงกับ note, หรือตรงกับหัวข้อใหญ่, หรือมีรายการอื่นในกล่องนี้กำลังแสดงอยู่
+                        if (isNoteMatch || isSummaryMatch || Array.from(details.querySelectorAll('li')).some(li => li.style.display !== "none")) {
+                            note.style.display = "";
+                        } else {
+                            note.style.display = "none";
+                        }
+                    });
+
+                } else {
+                    // กรณีไม่เจอคำที่ค้นหา "เลย" ใน details ก้อนนี้: ให้ซ่อนทิ้งไปทั้งก้อน
+                    details.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
