@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CS Knowledge Base - สารบัญโปรดักส์และข้อมูลของทีม CS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -13,6 +13,7 @@
             --card-bg: #ffffff;
             --text-main: #333333;
             --text-muted: #5f6368;
+            --sidebar-width: 280px; /* เพิ่มบรรทัดนี้ */
         }
 
         body {
@@ -21,33 +22,39 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            /* ปรับ padding-top เพิ่มขึ้น เพื่อไม่ให้แถบเมนูด้านบนบังเนื้อหา */
-            padding: 90px 20px 40px 20px; 
+            /* แก้ padding บรรทัดนี้ เพื่อหลบเมนูด้านซ้าย */
+            padding: 40px 20px 40px calc(var(--sidebar-width) + 20px); 
         }
 
-        /* ================= เพิ่ม Style สำหรับแถบเมนู (Navbar) ================= */
+       /* ================= ปรับ Style สำหรับแถบเมนู (Sidebar) ================= */
         .navbar {
             background-color: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: fixed; /* ติดขอบจอด้านบนเสมอ */
+            box-shadow: 2px 0 10px rgba(0,0,0,0.08); /* เงามาด้านขวา */
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            width: var(--sidebar-width);
+            height: 100vh; /* สูงเต็มจอ */
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 20px;
+            flex-direction: column; /* เรียงลงมาเป็นแนวตั้ง */
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 40px 20px;
             z-index: 1000;
             box-sizing: border-box;
+            overflow-y: auto;
         }
 
         .navbar a {
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
+            font-size: 18px; /* ขนาดกลาง */
+            font-weight: 700; /* ตัวหนา */
+            padding: 12px 16px;
             border-radius: 8px;
             transition: all 0.3s ease;
+            display: block;
+            line-height: 1.4;
         }
 
         .navbar a:hover {
@@ -194,6 +201,22 @@
             color: #d93025;
             font-style: italic;
             margin-top: 10px;
+        }
+
+        /* รองรับหน้าจอขนาดเล็ก (มือถือ) */
+        @media (max-width: 768px) {
+            body {
+                padding: 100px 20px 40px 20px;
+            }
+            .navbar {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 15px 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
         }
     </style>
 </head>
